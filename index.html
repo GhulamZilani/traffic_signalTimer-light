@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+        body{
+            background: url("1.jpg.png");
+            background-size: cover;   
+        }
+        .main{
+            display: table;
+            border: 3px solid red;
+            margin: auto;
+            background: white;
+            position: relative;
+            left: 150px;
+            border-radius: 10px;
+            top: 50px;
+        }
+        .light{
+            width: 70px;
+            height: 70px;
+            margin: 10px;
+            border-radius: 50%;
+            color: white;
+            text-align: center;
+            font-size: 40px;
+            line-height: 70px;
+            font-family: sans-serif;
+            background: black;
+        }
+    </style>
+    <script>
+        var i=0;
+        var n=1;
+        var cArray=["red","yellow","green"];
+        function trafficLight(){
+            var l=document.getElementsByClassName('light');
+            for(var j=0;j<l.length;j++){
+                l[j].style.background="black";
+                l[i].innerHTML="";
+            }
+            l[i].style.background=cArray[i];
+            if(i<l.length){
+                if(n<=3){
+                    l[i].innerHTML=n;
+                    n++;
+                }
+                if(n==4){
+                    i++;
+                    n=1;
+                    if(i==3){
+                        i=0;
+                    }
+                }
+            
+            }
+            
+        }
+        setInterval(trafficLight,1000);
+    </script>
+</head>
+<body onload="trafficLight()">
+    <div class="main">
+        <div class="light"></div>
+        <div class="light"></div>
+        <div class="light"></div>
+
+
+
+    </div>
+</body>
+</html>
